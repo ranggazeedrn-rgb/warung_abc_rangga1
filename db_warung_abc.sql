@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Jul 2026 pada 03.03
+-- Waktu pembuatan: 31 Jul 2026 pada 06.16
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -35,6 +35,13 @@ CREATE TABLE `tbl_barang` (
   `stok` int(11) NOT NULL,
   `tanggal_kadaluarsa` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbl_barang`
+--
+
+INSERT INTO `tbl_barang` (`id_barang`, `kode_barang`, `nama_barang`, `harga_satuan`, `stok`, `tanggal_kadaluarsa`) VALUES
+(1, 'BRG001', 'Indomie goreng', 3000.00, 40, '2027-08-10');
 
 -- --------------------------------------------------------
 
@@ -72,7 +79,16 @@ INSERT INTO `tbl_log` (`id_log`, `id_user`, `aktivitas`, `waktu`) VALUES
 (2, 1, 'logout', '2026-07-30 03:48:19'),
 (3, 1, 'login', '2026-07-30 03:48:22'),
 (4, 1, 'logout', '2026-07-30 03:48:25'),
-(5, 1, 'login', '2026-07-30 04:17:35');
+(5, 1, 'login', '2026-07-30 04:17:35'),
+(6, 1, 'login', '2026-07-31 04:47:27'),
+(7, 1, 'logout', '2026-07-31 04:47:44'),
+(8, 2, 'login', '2026-07-31 04:48:30'),
+(9, 2, 'logout', '2026-07-31 04:52:46'),
+(10, 2, 'login', '2026-07-31 04:52:54'),
+(11, 2, 'logout', '2026-07-31 05:02:38'),
+(12, 2, 'login', '2026-07-31 05:02:46'),
+(13, 2, 'logout', '2026-07-31 05:21:08'),
+(14, 2, 'login', '2026-07-31 06:09:48');
 
 -- --------------------------------------------------------
 
@@ -121,7 +137,9 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `role`) VALUES
-(1, 'Administrator', 'admin', '$2y$10$LqBZif8m0Y1EgMmzcU5y0ePEbnT4ZwM.m/rvVf.VCxDhobRfNlc5e', 'admin');
+(1, 'Administrator', 'admin', '$2y$10$LqBZif8m0Y1EgMmzcU5y0ePEbnT4ZwM.m/rvVf.VCxDhobRfNlc5e', 'admin'),
+(2, 'jopann', 'jopan', '$2y$10$OAgvFe/KnKBd4c5XHqr5euOySuLQyknTbb4t4F6tIMNzPeCQirohe', 'kasir'),
+(3, 'ebeng', 'ebeng', '$2y$10$aiZ9pobESPEfCTGWI4oLX.yiTaAZeZ8Nz25j51qbRAnUyG1sqPBh2', 'gudang');
 
 --
 -- Indexes for dumped tables
@@ -176,7 +194,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_detai_transaksi`
@@ -188,7 +206,7 @@ ALTER TABLE `tbl_detai_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
@@ -206,7 +224,7 @@ ALTER TABLE `tbl_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
