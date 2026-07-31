@@ -25,8 +25,14 @@ if (mysqli_num_rows($hasil) == 1) {
         $log    .= " VALUES ('$id_user', 'login', '$waktu')";
         mysqli_query($koneksi, $log);
 
-        header('Location: dashboard.php');
+        // Pengalihan halaman berdasarkan Role
+        if ($data['role'] === 'kasir') {
+            header('Location: kasir.php');
+        } else {
+            header('Location: dashboard.php');
+        }
         exit;
+
     } else {
         $_SESSION['pesan_error'] = 'Password salah!';
         header('Location: login.php');
